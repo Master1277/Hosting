@@ -3,20 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Hosting - Ultimate Modern Redesign</title>
+    <title>The Hosting - Pro Redesign</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
-<body class="light-theme"> <header>
+<body class="light-theme">
+<header>
     <div class="container-nav">
         <div class="logo">THE.<span>HOSTING</span></div>
-        <nav>
+        <nav id="main-nav">
             <a href="#">Shared</a>
             <a href="#">VPS</a>
             <a href="#">Dedicated</a>
         </nav>
         <div class="header-actions">
-            <button id="theme-toggle" class="theme-btn">
+            <button id="theme-toggle" class="theme-btn" title="Сменить тему">
                 <span class="icon-sun">☀️</span>
                 <span class="icon-moon">🌙</span>
             </button>
@@ -38,17 +39,17 @@
     <div class="feature-item">
         <div class="icon">⚡</div>
         <h4>Fast NVMe</h4>
-        <p>Unmatched speed for your applications.</p>
+        <p>Unmatched speed for your apps.</p>
     </div>
     <div class="feature-item">
         <div class="icon">🛡️</div>
-        <h4>DDoS Protection</h4>
-        <p>Enterprise-grade security included.</p>
+        <h4>Security</h4>
+        <p>Enterprise-grade protection.</p>
     </div>
     <div class="feature-item">
         <div class="icon">🎧</div>
         <h4>24/7 Support</h4>
-        <p>Our experts are always here to help.</p>
+        <p>Experts always online.</p>
     </div>
 </section>
 
@@ -79,14 +80,13 @@
 </section>
 
 <footer>
-    <p>&copy; 2026 THE.HOSTING. All rights reserved. Designed with Gleam Style.</p>
+    <p>&copy; 2026 THE.HOSTING. Designed with Gleam Style.</p>
 </footer>
 
 <script>
     const toggleBtn = document.getElementById('theme-toggle');
     const body = document.body;
 
-    // Проверяем, есть ли сохраненная тема в браузере
     if (localStorage.getItem('theme') === 'dark') {
         body.classList.remove('light-theme');
         body.classList.add('dark-theme');
@@ -94,13 +94,11 @@
 
     toggleBtn.addEventListener('click', () => {
         if (body.classList.contains('light-theme')) {
-            body.classList.remove('light-theme');
-            body.classList.add('dark-theme');
-            localStorage.setItem('theme', 'dark'); // Сохраняем выбор
+            body.classList.replace('light-theme', 'dark-theme');
+            localStorage.setItem('theme', 'dark');
         } else {
-            body.classList.remove('dark-theme');
-            body.classList.add('light-theme');
-            localStorage.setItem('theme', 'light'); // Сохраняем выбор
+            body.classList.replace('dark-theme', 'light-theme');
+            localStorage.setItem('theme', 'light');
         }
     });
 </script>
