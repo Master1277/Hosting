@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Hosting - Ultimate Modern Redesign</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="light-theme"> <header>
+    <div class="container-nav">
+        <div class="logo">THE.<span>HOSTING</span></div>
+        <nav>
+            <a href="#">Shared</a>
+            <a href="#">VPS</a>
+            <a href="#">Dedicated</a>
+        </nav>
+        <div class="header-actions">
+            <button id="theme-toggle" class="theme-btn">
+                <span class="icon-sun">☀️</span>
+                <span class="icon-moon">🌙</span>
+            </button>
+            <button class="btn-login">Client Area</button>
+        </div>
+    </div>
+</header>
+
+<section class="hero">
+    <h1>Premium Infrastructure<br>for Your Business</h1>
+    <p>Reliable, fast, and secure NVMe SSD hosting with 99.9% uptime guarantee.</p>
+    <div class="domain-search">
+        <input type="text" placeholder="Check your domain name here...">
+        <button>Search</button>
+    </div>
+</section>
+
+<section class="features">
+    <div class="feature-item">
+        <div class="icon">⚡</div>
+        <h4>Fast NVMe</h4>
+        <p>Unmatched speed for your applications.</p>
+    </div>
+    <div class="feature-item">
+        <div class="icon">🛡️</div>
+        <h4>DDoS Protection</h4>
+        <p>Enterprise-grade security included.</p>
+    </div>
+    <div class="feature-item">
+        <div class="icon">🎧</div>
+        <h4>24/7 Support</h4>
+        <p>Our experts are always here to help.</p>
+    </div>
+</section>
+
+<section class="pricing">
+    <div class="container-cards">
+        <div class="card">
+            <h3>Starter</h3>
+            <div class="price">€2.99<span>/mo</span></div>
+            <ul>
+                <li>1 Website</li>
+                <li>10GB NVMe SSD</li>
+                <li>Unlimited Bandwidth</li>
+            </ul>
+            <button class="btn-buy">Order Now</button>
+        </div>
+        <div class="card featured">
+            <div class="label">Most Popular</div>
+            <h3>Business</h3>
+            <div class="price">€7.50<span>/mo</span></div>
+            <ul>
+                <li>10 Websites</li>
+                <li>50GB NVMe SSD</li>
+                <li>Daily Backups</li>
+            </ul>
+            <button class="btn-buy">Order Now</button>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <p>&copy; 2026 THE.HOSTING. All rights reserved. Designed with Gleam Style.</p>
+</footer>
+
+<script>
+    const toggleBtn = document.getElementById('theme-toggle');
+    const body = document.body;
+
+    // Проверяем, есть ли сохраненная тема в браузере
+    if (localStorage.getItem('theme') === 'dark') {
+        body.classList.remove('light-theme');
+        body.classList.add('dark-theme');
+    }
+
+    toggleBtn.addEventListener('click', () => {
+        if (body.classList.contains('light-theme')) {
+            body.classList.remove('light-theme');
+            body.classList.add('dark-theme');
+            localStorage.setItem('theme', 'dark'); // Сохраняем выбор
+        } else {
+            body.classList.remove('dark-theme');
+            body.classList.add('light-theme');
+            localStorage.setItem('theme', 'light'); // Сохраняем выбор
+        }
+    });
+</script>
+</body>
+</html>

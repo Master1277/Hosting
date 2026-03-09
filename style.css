@@ -1,0 +1,237 @@
+/* --- ПЕРЕМЕННЫЕ ЦВЕТОВ --- */
+:root {
+    /* Цвета для Светлой Темы (по умолчанию) */
+    --bg-color: #f9fafb;
+    --card-bg: #ffffff;
+    --text-main: #1f2937;
+    --text-muted: #6b7280;
+    --border-color: #e5e7eb;
+    --header-bg: #ffffff;
+    --footer-bg: #111827;
+    --footer-text: #9ca3af;
+}
+
+/* Цвета для Тёмной Темы */
+body.dark-theme {
+    --bg-color: #111827;
+    --card-bg: #1f2937;
+    --text-main: #f9fafb;
+    --text-muted: #9ca3af;
+    --border-color: #374151;
+    --header-bg: #1f2937;
+    --footer-bg: #0b0f14;
+    --footer-text: #6b7280;
+}
+
+/* --- ОСНОВНЫЕ СТИЛИ --- */
+body {
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    /* ПЛАВНЫЙ ПЕРЕХОД ЦВЕТОВ */
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* --- ШАПКА --- */
+.container-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 10%;
+    background-color: var(--header-bg);
+    border-bottom: 1px solid var(--border-color);
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+.logo { font-weight: 700; font-size: 24px; }
+.logo span { color: #2563eb; }
+
+nav a {
+    margin: 0 15px;
+    text-decoration: none;
+    color: var(--text-main);
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+nav a:hover { color: #2563eb; }
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* Кнопка смены темы (красивая) */
+.theme-btn {
+    background: none;
+    border: 1px solid var(--border-color);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    transition: border-color 0.3s;
+}
+
+.theme-btn:hover { border-color: #2563eb; }
+
+/* Показываем иконки в зависимости от темы */
+body.light-theme .icon-sun { display: none; }
+body.light-theme .icon-moon { display: block; }
+body.dark-theme .icon-sun { display: block; color: #fbbf24; }
+body.dark-theme .icon-moon { display: none; }
+
+
+/* --- ГЛАВНЫЙ БЛОК --- */
+.hero {
+    text-align: center;
+    padding: 100px 20px;
+    background-color: var(--header-bg); /* Тот же цвет, что и шапка */
+    transition: background-color 0.3s;
+}
+
+.hero h1 { font-size: 52px; margin-bottom: 15px; line-height: 1.1; }
+
+.domain-search {
+    margin: 40px auto;
+    display: flex;
+    max-width: 600px;
+    background-color: var(--card-bg);
+    padding: 8px;
+    border-radius: 50px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    border: 1px solid var(--border-color);
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+.domain-search input {
+    flex: 1;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 50px;
+    outline: none;
+    background: transparent;
+    color: var(--text-main);
+    font-size: 16px;
+}
+
+.domain-search button {
+    background: #2563eb;
+    color: #fff;
+    border: none;
+    padding: 12px 35px;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background 0.3s;
+}
+
+.domain-search button:hover { background: #1d4ed8; }
+
+/* --- ПРЕИМУЩЕСТВА --- */
+.features {
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+    padding: 50px 10%;
+    background-color: var(--bg-color); /* Основной фон */
+}
+
+.feature-item { text-align: center; }
+.feature-item .icon { font-size: 36px; margin-bottom: 10px; }
+.feature-item h4 { margin: 5px 0; font-size: 18px; }
+.feature-item p { font-size: 14px; color: var(--text-muted); }
+
+/* --- ТАРИФЫ (КАРТОЧКИ) --- */
+.container-cards {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    padding: 60px 10%;
+}
+
+.card {
+    background-color: var(--card-bg);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.03);
+    width: 310px;
+    text-align: center;
+    border: 1px solid var(--border-color);
+    transition: all 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 25px 35px -5px rgba(0,0,0,0.1);
+}
+
+.card.featured {
+    border: 2px solid #2563eb;
+    position: relative;
+    transform: scale(1.05);
+}
+
+.label {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #2563eb;
+    color: #fff;
+    padding: 5px 18px;
+    border-radius: 99px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.price { font-size: 48px; font-weight: 700; margin: 20px 0; }
+.price span { font-size: 18px; color: var(--text-muted); }
+
+ul { list-style: none; padding: 0; margin: 30px 0; text-align: left; }
+ul li { margin-bottom: 14px; color: var(--text-main); display: flex; align-items: center; font-size: 15px;}
+ul li::before { content: "✓"; color: #10b981; font-weight: bold; margin-right: 12px; }
+
+.btn-buy {
+    width: 100%;
+    padding: 15px;
+    background: #2563eb;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 16px;
+    transition: background 0.3s;
+}
+
+.btn-buy:hover { background: #1d4ed8; }
+
+.btn-login {
+    background: #111827;
+    color: #fff;
+    padding: 10px 24px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background 0.3s;
+}
+
+body.dark-theme .btn-login { background: #f9fafb; color: #111827; }
+
+/* --- ПОДВАЛ --- */
+footer {
+    text-align: center;
+    padding: 50px;
+    background-color: var(--footer-bg);
+    color: var(--footer-text);
+    font-size: 14px;
+}
